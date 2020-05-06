@@ -1,4 +1,4 @@
-{% set version = '0.6.1' %}
+{% set version = "0.6.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -13,8 +13,8 @@ source:
   sha256: 18970376727142917cda2074149fda7ebc0f4b377610cafc2e4aaa7139576f90
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -25,11 +25,11 @@ requirements:
     - {{ compiler('cxx') }}      # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ compiler('m2w64_cxx') }}        # [win]
-    - {{posix}}filesystem        # [win]
-    - {{posix}}make
-    - {{posix}}sed               # [win]
-    - {{posix}}coreutils         # [win]
-    - {{posix}}zip               # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
   host:
     - r-base
     - r-asioheaders
@@ -40,7 +40,7 @@ requirements:
     - r-triebeard
   run:
     - r-base
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
     - r-asioheaders
     - r-bh
     - r-rcpp >=0.11.2
@@ -56,12 +56,12 @@ test:
 about:
   home: https://github.com/hrbrmstr/iptools
   license: MIT
-  summary: A toolkit for manipulating, validating and testing 'IP' addresses and ranges, along
-    with datasets relating to 'IP' addresses. Tools are also provided to map 'IPv4'
-    blocks to country codes. While it primarily has support for the 'IPv4' address space,
-    more extensive 'IPv6' support is intended.
+  summary: A toolkit for manipulating, validating and testing 'IP' addresses and ranges, along with datasets relating to 'IP' addresses. Tools are also provided to map 'IPv4' blocks to country codes. While it primarily has support for the 'IPv4' address space, more extensive 'IPv6' support is intended.
   license_family: MIT
 
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - LICENSE
 extra:
   recipe-maintainers:
     - conda-forge/r
