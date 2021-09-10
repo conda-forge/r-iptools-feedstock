@@ -1,4 +1,4 @@
-{% set version = "0.6.1" %}
+{% set version = "0.7.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/iptools_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/iptools/iptools_{{ version }}.tar.gz
-  sha256: 18970376727142917cda2074149fda7ebc0f4b377610cafc2e4aaa7139576f90
+  sha256: 19664df7822c6f105654f8f6b1a3fb9c441e5df51853f353d2adc04cf68b5fca
 
 build:
   merge_build_host: true  # [win]
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
